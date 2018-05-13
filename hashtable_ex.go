@@ -8,9 +8,11 @@ import (
 )
 
 func HashBucket(word string, buckets int) int {
-	letter := int(word[0])
-	bucket := letter % buckets
-	return bucket
+	var sum int
+	for _, v := range word {
+		sum += int(v)
+	}
+	return sum % buckets
 }
 
 func main() {
