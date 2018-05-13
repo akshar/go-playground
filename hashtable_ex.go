@@ -7,8 +7,10 @@ import (
 	"net/http"
 )
 
-func HashBucket(word string) int {
-	return int(word[0])
+func HashBucket(word string, buckets int) int {
+	letter := int(word[0])
+	bucket := letter % buckets
+	return bucket
 }
 
 func main() {
@@ -25,9 +27,9 @@ func main() {
 	//create slice to hold counts
 	buckets := make([]int, 200)
 	for scanner.Scan() {
-		n := HashBucket(scanner.Text())
+		n := HashBucket(scanner.Text(), 12)
 		buckets[n]++
 	}
 
-	fmt.Println(buckets[65:123]) // A,Z  a,z
+	fmt.Println(buckets[0:13]) // A,Z  a,z
 }
