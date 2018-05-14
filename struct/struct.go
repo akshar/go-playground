@@ -59,5 +59,4 @@ func main() {
 	}
 	//fields and methods of the inner-type are promoted to the outer type
 	fmt.Println(p1.name, p1.Person.name) // abc, abc
-
 }
